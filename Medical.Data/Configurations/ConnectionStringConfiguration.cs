@@ -6,7 +6,25 @@ using System.Threading.Tasks;
 
 namespace Medical.Data.Configurations
 {
-    public class ConnectionStringConfiguration
+    public class ConnectionStringConfiguration : IConnectionStringConfiguration
     {
+        private readonly ConnectionStringSettings _connectionStringSettings;
+
+
+        public ConnectionStringConfiguration(IOptions<ConnectionStringSettings> connectionStringSettings)
+        {
+            if (connectionStringSettings == null)
+            {
+                throw new ArgumentNullException(nameof(connectionStringSettings));
+            }
+
+
+
+            _connectionStringSettings = connectionStringSettings.Value;
+        }
+
+        public string AuthDb => _connectionStringSettings.AuthDbConnection;
+
+        public string IVOAIDb => _connectionStringSettings.DefaultConnection;
     }
 }
