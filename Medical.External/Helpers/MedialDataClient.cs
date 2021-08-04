@@ -1,4 +1,6 @@
 ﻿using Medical.Data.Contract.Helpers;
+using Medical.Infrastructure.Exceptions;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;

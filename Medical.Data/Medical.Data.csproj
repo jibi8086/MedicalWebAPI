@@ -9,4 +9,8 @@
     <ProjectReference Include="..\Medical.Infrastructure\Medical.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Core\Extensions\" />
+  </ItemGroup>
+
 </Project>
