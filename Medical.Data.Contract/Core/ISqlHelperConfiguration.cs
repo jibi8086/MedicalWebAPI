@@ -8,5 +8,6 @@ namespace Medical.Data.Contract.Core
 {
     public interface ISqlHelperConfiguration
     {
+        string ConnectionString { get; }
     }
 }
