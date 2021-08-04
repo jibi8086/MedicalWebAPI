@@ -1,3 +1,4 @@
+using Medical.Infrastructure.IOC;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +29,7 @@ namespace MedicalWebAPI
         {
 
             services.AddControllers();
+            services.AddDependency(Configuration);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MedicalWebAPI", Version = "v1" });
