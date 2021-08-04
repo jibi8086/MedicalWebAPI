@@ -24,7 +24,7 @@ namespace Medical.External.Helpers
             {
                 if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
                 {
-                    throw new ExternalApiException($"ivoai api failed with statuscode : {response.StatusCode }");
+                    throw new ExternalApiException($"Medical api failed with statuscode : {response.StatusCode }");
                 }
 
                 var content = await response.Content.ReadAsStringAsync();
@@ -33,7 +33,7 @@ namespace Medical.External.Helpers
                 {
                     return JsonConvert.DeserializeObject<T>(content);
                 }
-                throw new ExternalApiException($"ivoai api failed with statuscode : {response.StatusCode }");
+                throw new ExternalApiException($"Medical api failed with statuscode : {response.StatusCode }");
 
             }
         }
@@ -44,7 +44,7 @@ namespace Medical.External.Helpers
             {
                 if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
                 {
-                    throw new ExternalApiException($"ivoai api call failed with statuscode : {response.StatusCode}");
+                    throw new ExternalApiException($"Medical api call failed with statuscode : {response.StatusCode}");
                 }
 
                 string content = await response.Content.ReadAsStringAsync();
@@ -54,7 +54,7 @@ namespace Medical.External.Helpers
                     return JsonConvert.DeserializeObject<T>(content);
                 }
 
-                throw new ExternalApiException($"ivoai api call failed with statuscode : {response.StatusCode}");
+                throw new ExternalApiException($"Medical api call failed with statuscode : {response.StatusCode}");
             }
         }
     }

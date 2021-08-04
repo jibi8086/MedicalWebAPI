@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
-using IVOAI.Data.Contract.Core;
+using Medical.Data.Contract.Core;
 
-namespace IVOAI.Data.Core
+namespace Medical.Data.Core
 {
     public class SqlFactory : ISqlFactory
     {
