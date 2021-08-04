@@ -41,6 +41,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medical.Int.Test", "Medical
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medical.Data.Test", "Medical.Data.Test\Medical.Data.Test.csproj", "{86AA5C76-40BE-4E1A-B731-5E0305C89F79}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medical.External", "Medical.External\Medical.External.csproj", "{EDA06FD5-E210-4879-B29D-74B13C51E4EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{86AA5C76-40BE-4E1A-B731-5E0305C89F79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86AA5C76-40BE-4E1A-B731-5E0305C89F79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86AA5C76-40BE-4E1A-B731-5E0305C89F79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDA06FD5-E210-4879-B29D-74B13C51E4EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDA06FD5-E210-4879-B29D-74B13C51E4EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDA06FD5-E210-4879-B29D-74B13C51E4EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDA06FD5-E210-4879-B29D-74B13C51E4EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -117,6 +123,7 @@ Global
 		{BB5C764F-D5CB-4D78-A066-15823CE2111A} = {18C8BCC6-1985-49FA-98B4-0116AFD61E85}
 		{D8781538-40E9-4895-8E9B-049324D91705} = {18C8BCC6-1985-49FA-98B4-0116AFD61E85}
 		{86AA5C76-40BE-4E1A-B731-5E0305C89F79} = {18C8BCC6-1985-49FA-98B4-0116AFD61E85}
+		{EDA06FD5-E210-4879-B29D-74B13C51E4EA} = {7A475A04-1912-43BA-9A17-7A28CE00391B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8A17B11D-184E-4DEA-9AD1-694F19B2A182}
