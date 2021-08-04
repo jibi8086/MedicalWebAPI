@@ -1,11 +1,11 @@
-using IVOAI.Data.Contract.Configurations;
-using IVOAI.Infrastruture.Configurations;
+using Medical.Data.Contract.Configurations;
+using Medical.Infrastructure.Configurations;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace IVOAI.Data.Configurations
+namespace Medical.Data.Configurations
 {
     public class SqlServerDataAccessConfiguration: ISqlServerDataAccessConfiguration
     {

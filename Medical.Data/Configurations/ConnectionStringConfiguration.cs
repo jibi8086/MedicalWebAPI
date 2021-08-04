@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Medical.Data.Contract.Configurations;
+using Medical.Infrastructure.Configurations;
+using Microsoft.Extensions.Options;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,8 +26,7 @@ namespace Medical.Data.Configurations
             _connectionStringSettings = connectionStringSettings.Value;
         }
 
-        public string AuthDb => _connectionStringSettings.AuthDbConnection;
+        public string MedicalDB => _connectionStringSettings.DefaultConnection;
 
-        public string IVOAIDb => _connectionStringSettings.DefaultConnection;
     }
 }
