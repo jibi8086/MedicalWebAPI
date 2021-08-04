@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data;
 using System.Globalization;
-using IVOAI.Data.Core.Extensions;
-using IVOAI.Data.Contract.Core;
+using Medical.Data.Contract.Core;
+using Medical.Data.Core.Extensions;
 
-namespace IVOAI.Data.Core
+namespace Medical.Data.Core
 {
     public class DataRecordMappingHelper : IDataRecordMappingHelper
     {
