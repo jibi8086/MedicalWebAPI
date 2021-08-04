@@ -6,9 +6,9 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using IVOAI.Data.Contract.Core;
+using Medical.Data.Contract.Core;
 
-namespace IVOAI.Data.Core
+namespace Medical.Data.Core
 {
     public class SqlHelper : ISqlHelper
     {
