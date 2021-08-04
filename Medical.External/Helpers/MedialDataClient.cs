@@ -1,18 +1,18 @@
-﻿using System;
+﻿using Medical.Data.Contract.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Medical.External.Helpers
 {
-    class MedialDataClient
-    {
-    }
-     public class IvoaiDataClient : IIvoaiDataClient
+
+     public class MedialDataClient : IMedialDataClient
     {
         private readonly HttpClient _httpClient;
-        public IvoaiDataClient(HttpClient httpClient)
+        public MedialDataClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
