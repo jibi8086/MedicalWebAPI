@@ -1,9 +1,6 @@
 ﻿using Medical.Data.Contract.Helpers;
 using Medical.Infrastructure.Exceptions;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +8,7 @@ using System.Threading.Tasks;
 namespace Medical.External.Helpers
 {
 
-     public class MedialDataClient : IMedialDataClient
+    public class MedialDataClient : IMedialDataClient
     {
         private readonly HttpClient _httpClient;
         public MedialDataClient(HttpClient httpClient)

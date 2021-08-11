@@ -1,4 +1,7 @@
-﻿using Medical.Domain.Contract;
+﻿using AutoMapper;
+using Medical.Domain.Contract;
+using Medical.Domain.Contract.UserLogin;
+using MedicalWebAPI.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,17 +16,33 @@ namespace MedicalWebAPI.Areas.v1.Controllers
     public class UserController : ControllerBase
     {
         #region PRIVATE
-        private IUserService _userService;
+        private readonly IUserLoginDomainService _userLoginDomainService;
+        private readonly IMapper _mapper;
         #endregion
-        public UserController(IUserService userService)
+
+        #region CONSTRUCTOR
+        public UserController(IUserLoginDomainService userLoginDomainService, IMapper mapper)
         {
-            _userService = userService;
+            _userLoginDomainService = userLoginDomainService;
+            _mapper = mapper;
         }
+        #endregion
+
 
         [HttpPost]
-        public async Task<bool> AuthenticateUser() {
+        public async Task<UserLoginViewModel> AuthenticateUser(UserLoginViewModel login) {
 
-            return await _userService.AuthenticateUser();
+            try
+            {
+                var loginDetails = _mapper.Map<UserLoginDomainDto>(login);
+                var result = await _userLoginDomainService.AuthenticateUser(loginDetails);
+                return _mapper.Map<UserLoginViewModel>(result);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }
