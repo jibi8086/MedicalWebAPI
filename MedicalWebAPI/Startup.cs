@@ -31,7 +31,7 @@ namespace MedicalWebAPI
 
             services.AddControllers();
             services.AddDependency(Configuration);
-            services.Configure<ConnectionStringSettings>(Configuration.GetSection("ConnectionStrings"));
+            //services.Configure<ConnectionStringSettings>(Configuration.GetSection(""));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MedicalWebAPI", Version = "v1" });
