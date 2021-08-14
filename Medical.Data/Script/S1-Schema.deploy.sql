@@ -122,3 +122,87 @@ CREATE TABLE [dbo].[Medical_Log](
 GO
 
 
+GO
+
+CREATE PROCEDURE [dbo].[spWebLogInsert]
+	@EventDateTime datetime2(7),
+	@EventLevel nvarchar(10),
+	@EventMessage nvarchar(500) = NULL,
+	@EventProperties nvarchar(max) = NULL,
+	@EventGuid nvarchar(38) = NULL,
+	@MachineName nvarchar(100),
+	@ProcessId int,
+	@ProcessName nvarchar(100),
+	@AppDomainId int,
+	@AppDomainName nvarchar(100) = NULL,
+	@ThreadId int,
+	@ThreadName nvarchar(100) = NULL,
+	@SiteName nvarchar(100),
+	@LoggerName nvarchar(100),
+	@ThreadIdentity nvarchar(100) = NULL,
+	@WebIdentity nvarchar(100) = NULL,
+	@ExceptionMessage nvarchar(max) = NULL,
+	@ExceptionType nvarchar(300) = NULL,
+	@ExceptionData nvarchar(max) = NULL,
+	@ExceptionStackTrace nvarchar(max) = NULL,
+	@HttpRequest nvarchar(max) = NULL,
+	@IpAddress nvarchar(100) NULL,
+	@SessionId nvarchar(max) NULL
+AS
+BEGIN
+
+    DECLARE @V2LogId TABLE (Id INT)
+
+	INSERT INTO [dbo].[Medical_Log]
+			   ([EventDateTime]
+			   ,[EventLevel]
+			   ,[EventMessage]
+			   ,[EventProperties]
+			   ,[EventGuid]
+			   ,[MachineName]
+			   ,[ProcessId]
+			   ,[ProcessName]
+			   ,[AppDomainId]
+			   ,[AppDomainName]
+			   ,[ThreadId]
+			   ,[ThreadName]
+			   ,[SiteName]
+			   ,[LoggerName]
+			   ,[ThreadIdentity]
+			   ,[WebIdentity]
+			   ,[ExceptionMessage]
+			   ,[ExceptionType]
+			   ,[ExceptionData]
+			   ,[ExceptionStackTrace]
+			   ,[HttpRequest]
+			   ,[IpAddress]
+			   ,[SessionId])
+		 OUTPUT INSERTED.SequentialId INTO @V2LogId
+		 VALUES
+			   (@EventDateTime,
+				NULLIF(@EventLevel, ''),
+				NULLIF(@EventMessage, ''),
+				NULLIF(@EventProperties, ''),
+				(SELECT CONVERT(uniqueidentifier, @EventGuid) WHERE REPLACE(REPLACE(@EventGuid, '{', ''), '}', '') LIKE REPLACE('00000000-0000-0000-0000-000000000000', '0', '[0-9a-fA-F') COLLATE Latin1_General_BIN),
+				NULLIF(@MachineName, ''),
+				@ProcessId,
+				NULLIF(@ProcessName, ''),
+				@AppDomainId,
+				NULLIF(@AppDomainName, ''),
+				@ThreadId,
+				NULLIF(@ThreadName, ''),
+				NULLIF(@SiteName, ''),
+				NULLIF(@LoggerName, ''),
+				CASE @ThreadIdentity WHEN 'notauth::' THEN NULL WHEN '' THEN NULL ELSE @ThreadIdentity END,
+				CASE @WebIdentity WHEN 'notauth::' THEN NULL WHEN '' THEN NULL ELSE @WebIdentity END,
+				NULLIF(@ExceptionMessage, ''),
+				NULLIF(@ExceptionType, ''),
+				NULLIF(@ExceptionData, ''),
+				NULLIF(@ExceptionStackTrace, ''),
+				CASE LTRIM(@HttpRequest) WHEN '' THEN NULL WHEN CHAR(13) + CHAR(10) THEN NULL ELSE @HttpRequest END,
+				NULLIF(@IpAddress, ''),
+				NULLIF(@SessionId, ''))
+
+   
+END
+GO
