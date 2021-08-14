@@ -1,7 +1,6 @@
 ﻿using Medical.Data.Contract.Configurations;
 using Medical.Data.Contract.UserLogin;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
 
 namespace Medical.Data.UserLogin
 {
@@ -11,12 +10,17 @@ namespace Medical.Data.UserLogin
         private readonly IUserLoginDataMapper _userLoginDataMapper;
         private readonly IMedicalDbSqlHelper _sqlHelper;
         #endregion
+
+        #region CONSTRUCTOR
         public UserLoginDataAccess(IUserLoginDataMapper userLoginDataMapper, IMedicalDbSqlHelper sqlHelper)
         {
             _sqlHelper = sqlHelper;
             _userLoginDataMapper = userLoginDataMapper;
         }
-        public async Task<UserLoginData> AuthenticateUser(UserLoginData login) 
+        #endregion
+
+        #region PUBLIC
+        public async Task<UserLoginData> AuthenticateUser(UserLoginData login)
         {
             const string StoredProcedure = "getLoginDetails";
             //var SqlParameters = new[] {
@@ -25,10 +29,12 @@ namespace Medical.Data.UserLogin
 
             return await _sqlHelper.GetFirstOrDefaultAsync(
                                     StoredProcedure,
-                                    _userLoginDataMapper.MapUserDetails                                    
+                                    _userLoginDataMapper.MapUserDetails
                 );
 
-        
+
         }
+        #endregion
+
     }
 }
