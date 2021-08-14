@@ -83,7 +83,7 @@ CREATE TABLE [dbo].[EmployeeDetails](
 GO
 
 
-USE [ivoai_db]
+USE [Medical]
 GO
 
 /****** Object:  Table [dbo].[Medical_Log]    Script Date: 15-08-2021 03:09:03 ******/
