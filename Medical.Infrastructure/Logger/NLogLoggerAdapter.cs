@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Medical.Infrastructure.Logger.Contracts;
+using NLog;
+using NLog.Fluent;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

@@ -8,4 +8,8 @@
     <Folder Include="Enum\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="NLog.Web.AspNetCore" Version="4.13.0" />
+  </ItemGroup>
+
 </Project>

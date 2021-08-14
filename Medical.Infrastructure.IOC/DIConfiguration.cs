@@ -8,6 +8,8 @@ using Medical.Domain;
 using Medical.Domain.Contract;
 using Medical.Domain.Contract.UserLogin;
 using Medical.Domain.UserLogin;
+using Medical.Infrastructure.Logger;
+using Medical.Infrastructure.Logger.Contracts;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NLog;
@@ -37,7 +39,7 @@ namespace Medical.Infrastructure.IOC
             services.AddTransient<IUserLoginDataMapper, UserLoginDataMapper>();
             
             services.AddTransient<IApplicationLogger, NLogLoggerAdapter>();
-            services.AddTransient<ILogger>(context => LogManager.GetLogger("IVOAIAPI"));
+            services.AddTransient<ILogger>(context => LogManager.GetLogger("MedicalAPI"));
         }
     }
 }
