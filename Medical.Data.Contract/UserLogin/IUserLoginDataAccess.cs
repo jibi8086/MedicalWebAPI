@@ -9,5 +9,6 @@ namespace Medical.Data.Contract.UserLogin
     public interface IUserLoginDataAccess
     {
         Task<UserLoginData> AuthenticateUser(UserLoginData login);
+        Task<bool> CreateEmployee(EmployeeData employee);
     }
 }

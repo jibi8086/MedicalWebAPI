@@ -93,6 +93,8 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
+/****** Object:  Table [dbo].[Medical_Log]    Script Date: 8/15/2021 2:12:26 AM ******/
+
 CREATE TABLE [dbo].[Medical_Log](
 	[SequentialId] [int] IDENTITY(1,1) NOT NULL,
 	[EventDateTime] [datetime2](7) NULL,

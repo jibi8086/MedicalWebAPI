@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,10 +55,9 @@ namespace MedicalWebAPI
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MedicalWebAPI v1"));
             }
             GlobalDiagnosticsContext.Set("configDir", "C:\\git\\damienbod\\AspNetCoreNlog\\Logs");
-
             GlobalDiagnosticsContext.Set("DefaultConnection", Configuration.GetConnectionString("DefaultConnection"));
-
             LogManager.LoadConfiguration("nlog.config");
+
             app.UseHttpsRedirection();
 
             app.UseRouting();

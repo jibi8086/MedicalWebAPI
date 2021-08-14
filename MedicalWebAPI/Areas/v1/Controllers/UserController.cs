@@ -32,6 +32,7 @@ namespace MedicalWebAPI.Areas.v1.Controllers
 
         #region PUBLIC
         [HttpPost]
+        [Route("AuthenticateUser")]
         public async Task<IActionResult> AuthenticateUser(UserLoginViewModel login)
         {
 
@@ -54,6 +55,7 @@ namespace MedicalWebAPI.Areas.v1.Controllers
         }
 
         [HttpPost]
+        [Route("CreateEmployee")]
         public async Task<IActionResult> CreateEmployee(EmployeeViewModel employee)
         {
 

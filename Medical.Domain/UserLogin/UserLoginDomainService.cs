@@ -29,11 +29,11 @@ namespace Medical.Domain.UserLogin
             var result= await _userLoginDataAccess.AuthenticateUser(loginDetails);
             return _mapper.Map<UserLoginDomainDto>(result);
         }   
-        public async Task<bit> CreateEmployee(EmployeeDomainDto employee) {
+        public async Task<bool> CreateEmployee(EmployeeDomainDto employee) {
 
-            var loginDetails = _mapper.Map<UserLoginData>(login);
-            var result= await _userLoginDataAccess.AuthenticateUser(loginDetails);
-            return _mapper.Map<UserLoginDomainDto>(result);
+            var employeeDetails = _mapper.Map<EmployeeData>(employee);
+            var result= await _userLoginDataAccess.CreateEmployee(employeeDetails);
+            return result;
         }   
 
     }

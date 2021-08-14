@@ -1,5 +1,6 @@
 ﻿using Medical.Data.Contract.Configurations;
 using Medical.Data.Contract.UserLogin;
+using System.Data.SqlClient;
 using System.Threading.Tasks;
 
 namespace Medical.Data.UserLogin
@@ -31,6 +32,22 @@ namespace Medical.Data.UserLogin
                                     StoredProcedure,
                                     _userLoginDataMapper.MapUserDetails
                 );
+
+
+        }
+        public async Task<bool> CreateEmployee(EmployeeData employee)
+        {
+            const string StoredProcedure = "getLoginDetails";
+            var SqlParameters = new[] {
+                new SqlParameter("",5)
+            };
+
+            var res = await _sqlHelper.ExecuteNonQueryAsync(
+                                    StoredProcedure,
+                                    
+                                    SqlParameters
+                                    );
+            return true;
 
 
         }

@@ -10,6 +10,7 @@ using Medical.Domain.Contract.UserLogin;
 using Medical.Domain.UserLogin;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NLog;
 
 namespace Medical.Infrastructure.IOC
 {

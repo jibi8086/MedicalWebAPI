@@ -9,6 +9,6 @@ namespace Medical.Domain.Contract.UserLogin
     public interface IUserLoginDomainService
     {
         Task<UserLoginDomainDto> AuthenticateUser(UserLoginDomainDto login);
-        Task<UserLoginDomainDto> CreateEmployee(EmployeeDomainDto employee);
+        Task<bool> CreateEmployee(EmployeeDomainDto employee);
     }
 }
