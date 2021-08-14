@@ -35,6 +35,9 @@ namespace Medical.Infrastructure.IOC
             services.AddTransient<IUserLoginDomainService, UserLoginDomainService>();
             services.AddTransient<IUserLoginDataAccess, UserLoginDataAccess>();
             services.AddTransient<IUserLoginDataMapper, UserLoginDataMapper>();
+            
+            services.AddTransient<IApplicationLogger, NLogLoggerAdapter>();
+            services.AddTransient<ILogger>(context => LogManager.GetLogger("IVOAIAPI"));
         }
     }
 }
