@@ -81,3 +81,44 @@ CREATE TABLE [dbo].[EmployeeDetails](
 	[ZipCode] [nvarchar](100) NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
+
+
+USE [ivoai_db]
+GO
+
+/****** Object:  Table [dbo].[Medical_Log]    Script Date: 15-08-2021 03:09:03 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Medical_Log](
+	[SequentialId] [int] IDENTITY(1,1) NOT NULL,
+	[EventDateTime] [datetime2](7) NULL,
+	[EventLevel] [nvarchar](10) NULL,
+	[EventMessage] [nvarchar](500) NULL,
+	[EventProperties] [nvarchar](max) NULL,
+	[EventGuid] [nvarchar](38) NULL,
+	[MachineName] [nvarchar](100) NULL,
+	[ProcessId] [int] NULL,
+	[ProcessName] [nvarchar](100) NULL,
+	[AppDomainId] [int] NULL,
+	[AppDomainName] [nvarchar](100) NULL,
+	[ThreadId] [int] NULL,
+	[ThreadName] [nvarchar](100) NULL,
+	[SiteName] [nvarchar](100) NULL,
+	[LoggerName] [nvarchar](100) NULL,
+	[ThreadIdentity] [nvarchar](100) NULL,
+	[WebIdentity] [nvarchar](100) NULL,
+	[ExceptionMessage] [nvarchar](max) NULL,
+	[ExceptionType] [nvarchar](300) NULL,
+	[ExceptionData] [nvarchar](max) NULL,
+	[ExceptionStackTrace] [nvarchar](max) NULL,
+	[HttpRequest] [nvarchar](max) NULL,
+	[IpAddress] [nvarchar](100) NULL,
+	[SessionId] [nvarchar](max) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+
