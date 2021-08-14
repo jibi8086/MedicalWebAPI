@@ -30,9 +30,10 @@ namespace MedicalWebAPI.Areas.v1.Controllers
         }
         #endregion
 
-
+        #region PUBLIC
         [HttpPost]
-        public async Task<IActionResult> AuthenticateUser(UserLoginViewModel login) {
+        public async Task<IActionResult> AuthenticateUser(UserLoginViewModel login)
+        {
 
             try
             {
@@ -46,11 +47,12 @@ namespace MedicalWebAPI.Areas.v1.Controllers
                     .Exception(ex)
                     .Message($"Login Failed UserID={login.UserName}")
                     .LoggerName("AuthenticateUser")
-                    .Property(nameof(login.UserName),login.UserName)
+                    .Property(nameof(login.UserName), login.UserName)
                     .Write();
-                return Ok(new ResponseVM<bool>(false,ex.Message));
+                return Ok(new ResponseVM<bool>(false, ex.Message));
             }
         }
+
         [HttpPost]
         public async Task<IActionResult> CreateEmployee(EmployeeViewModel employee)
         {
@@ -72,5 +74,7 @@ namespace MedicalWebAPI.Areas.v1.Controllers
                 return Ok(new ResponseVM<bool>(false, ex.Message));
             }
         }
+        #endregion
+
     }
 }
