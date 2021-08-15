@@ -208,3 +208,87 @@ BEGIN
    
 END
 GO
+
+
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE InsertEmployeeDetails
+	@UserName nvarchar(100), 
+	@Password nvarchar(100),
+	@CreatedBy int,
+	@Place nvarchar(100),
+	@City nvarchar(100),
+	@District nvarchar(100),
+	@State nvarchar(100),
+	@Country nvarchar(100),
+	@ZipCode nvarchar(100)
+
+
+
+AS
+BEGIN
+    SET NOCOUNT ON;
+BEGIN TRANSACTION
+	BEGIN TRY
+		INSERT INTO [dbo].[Employee] (
+				[UserName], 
+				[Password], 
+				[IsActive],
+				[IsDeleted], 
+				[CreatedBy], 
+				[CreatedDate]
+			)
+		VALUES(
+			@UserName,
+			@Password,
+			1,
+			0,
+			@CreatedBy,
+			GETDATE()
+			)
+
+		INSERT INTO [dbo].[EmployeeDetails] (
+			Fk_EmployeeID,
+			Place,
+			City,
+			District,
+			State,
+			Country,
+			ZipCode
+		)
+		VALUES(
+			SCOPE_IDENTITY(),
+			@Place,
+			@City,
+			@District,
+			@State,
+			@Country,
+			@ZipCode
+		)
+	COMMIT 
+	END TRY
+	BEGIN CATCH
+		ROLLBACK TRANSACTION
+		--exec [dbo].[spWebLogInsert] '','','','','','','','','','','','','','','','','',''
+	END CATCH
+
+END
+GO

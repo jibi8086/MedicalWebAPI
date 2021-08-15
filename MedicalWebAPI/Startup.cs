@@ -74,7 +74,11 @@ namespace MedicalWebAPI
                 config.CreateMap<UserLoginViewModel, UserLoginDomainDto>();
                 config.CreateMap<UserLoginDomainDto, UserLoginViewModel>();
                 config.CreateMap<UserLoginData, UserLoginDomainDto>();
-                config.CreateMap<UserLoginDomainDto, UserLoginData>();
+                config.CreateMap<UserLoginDomainDto, UserLoginData>();                
+                config.CreateMap<EmployeeViewModel, EmployeeDomainDto>();
+                config.CreateMap<EmployeeDomainDto, EmployeeViewModel>();
+                config.CreateMap<EmployeeData, EmployeeDomainDto>();
+                config.CreateMap<EmployeeDomainDto, EmployeeData>();
             });
             return configuration.CreateMapper();
         }

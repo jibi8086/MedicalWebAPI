@@ -106,7 +106,7 @@ namespace Medical.Infrastructure.Logger
         }
     }
 
-    public partial class NLogLoggerAdapter : IApplicationLogger
+ public partial class NLogLoggerAdapter : IApplicationLogger
     {
         private LogBuilder _logBuilder;
 

@@ -37,11 +37,20 @@ namespace Medical.Data.UserLogin
         }
         public async Task<bool> CreateEmployee(EmployeeData employee)
         {
-            const string StoredProcedure = "getLoginDetails";
-            var SqlParameters = new[] {
-                new SqlParameter("",5)
-            };
+            const string StoredProcedure = "InsertEmployeeDetails";
 
+            var SqlParameters = new[] {
+                new SqlParameter("@UserName",employee.UserName),
+                new SqlParameter("@Password",employee.Password),
+                new SqlParameter("@CreatedBy",employee.CreatedBy),
+                new SqlParameter("@Place",employee.Place),
+                new SqlParameter("@City",employee.City),
+                new SqlParameter("@District",employee.District),
+                new SqlParameter("@State",employee.State),
+                new SqlParameter("@Country",employee.Country),
+                new SqlParameter("@ZipCode",employee.ZipCode),
+            };
+                
             var res = await _sqlHelper.ExecuteNonQueryAsync(
                                     StoredProcedure,
                                     

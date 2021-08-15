@@ -63,7 +63,7 @@ namespace MedicalWebAPI.Areas.v1.Controllers
             {
                 var employeeDetails = _mapper.Map<EmployeeDomainDto>(employee);
                 var result = await _userLoginDomainService.CreateEmployee(employeeDetails);
-                return Ok(new ResponseVM<UserLoginViewModel>(true, ResponseMessages.DATA_ACCESS_SUCCESS, _mapper.Map<UserLoginViewModel>(result)));
+                return Ok(new ResponseVM<bool>(true, ResponseMessages.DATA_ACCESS_SUCCESS, _mapper.Map<bool>(result)));
             }
             catch (Exception ex)
             {
