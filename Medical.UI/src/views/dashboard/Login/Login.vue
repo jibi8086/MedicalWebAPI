@@ -185,6 +185,7 @@
 // import UserDataService from '../../Services/UserDataService'
 // import { mapState, mapActions } from 'vuex'
   export default {
+    name: 'DashboardCoreLogin',
     data: () => ({
       dialog: true,
       tab: 0,

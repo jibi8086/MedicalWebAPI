@@ -11,11 +11,11 @@ export default new Vuex.Store({
     plugins: [createPersistedState({
         storage: window.sessionStorage,
     })],
-    state() {
+    state () {
         return { ...state }
     },
     mutations,
     actions,
     modules: {
-    }
+    },
 })
