@@ -276,3 +276,67 @@ BEGIN TRANSACTION
 	END CATCH
 
 END
+
+
+
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE InsertCompanyDetails
+	@ComapnyOwnerID int,
+	@CompanyName nvarchar(max),
+	@CompanyCode nvarchar(max),
+	@CompanyEmail nvarchar(max),
+	@District nvarchar(max),
+	@State nvarchar(max),
+	@Place nvarchar(max),
+	@City nvarchar(max),
+	@Country nvarchar(max),
+	@ZipCode nvarchar(max),
+	@CreatedBy nvarchar(max),
+	@CreatedDate nvarchar(max)
+
+AS
+BEGIN
+	INSERT INTO [dbo].[Company](
+					ComapnyOwnerID, 
+					CompanyName, 
+					CompanyCode, 
+					CompanyEmail, 
+					Place, 
+					City, 
+					District, 
+					[State], 
+					Country, 
+					ZipCode, 
+					IsActive,
+					IsDeleted, 
+					CreatedBy, 
+					CreatedDate, 
+					ModifiedBy,
+					ModifiedDate
+				)
+				VALUES(
+					@ComapnyOwnerID, 
+					@CompanyName, 
+					@CompanyCode, 
+					@CompanyEmail, 
+					@Place, 
+					@City, 
+					@District, 
+					@State, 
+					@Country, 
+					@ZipCode, 
+					1,
+					0, 
+					1, 
+					GETDATE(), 
+					1,
+					GETDATE()
+				)
+	
+END
+GO
