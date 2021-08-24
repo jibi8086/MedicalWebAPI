@@ -1,9 +1,12 @@
 using AutoMapper;
+using Medical.Data.Contract.Company;
 using Medical.Data.Contract.UserLogin;
+using Medical.Domain.Contract.Company;
 using Medical.Domain.Contract.UserLogin;
 using Medical.Infrastructure.Configurations;
 using Medical.Infrastructure.IOC;
 using MedicalWebAPI.ViewModels;
+using MedicalWebAPI.ViewModels.Company;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -79,6 +82,12 @@ namespace MedicalWebAPI
                 config.CreateMap<EmployeeDomainDto, EmployeeViewModel>();
                 config.CreateMap<EmployeeData, EmployeeDomainDto>();
                 config.CreateMap<EmployeeDomainDto, EmployeeData>();
+
+                config.CreateMap<CompanyViewModel, CompanyDomainDto>();
+                config.CreateMap<CompanyDomainDto, CompanyViewModel>();
+                config.CreateMap<CompanyData, CompanyDomainDto>();
+                config.CreateMap<CompanyDomainDto, CompanyData>();
+
             });
             return configuration.CreateMapper();
         }

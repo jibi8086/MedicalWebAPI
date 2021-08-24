@@ -13,6 +13,7 @@ CREATE TABLE [dbo].[Company](
 	[ComapnyOwnerID] [int] NULL,
 	[CompanyName] [nvarchar](max) NULL,
 	[CompanyCode] [nvarchar](50) NULL,
+	[CompanyEmail] [nvarchar](100) NULL,
 	[Place] [nvarchar](max) NULL,
 	[City] [nvarchar](max) NULL,
 	[District] [nvarchar](max) NULL,
@@ -210,28 +211,12 @@ END
 GO
 
 
--- ================================================
--- Template generated from Template Explorer using:
--- Create Procedure (New Menu).SQL
---
--- Use the Specify Values for Template Parameters 
--- command (Ctrl-Shift-M) to fill in the parameter 
--- values below.
---
--- This block of comments will not be included in
--- the definition of the procedure.
--- ================================================
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
--- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
--- =============================================
-CREATE PROCEDURE InsertEmployeeDetails
-	@UserName nvarchar(100), 
+
+
+
+
+CREATE PROCEDURE [dbo].[InsertEmployeeDetails]
+	@UserName nvarchar(100),
 	@Password nvarchar(100),
 	@CreatedBy int,
 	@Place nvarchar(100),
@@ -245,11 +230,11 @@ CREATE PROCEDURE InsertEmployeeDetails
 
 AS
 BEGIN
-    SET NOCOUNT ON;
+    --SET NOCOUNT ON;
 BEGIN TRANSACTION
 	BEGIN TRY
 		INSERT INTO [dbo].[Employee] (
-				[UserName], 
+				[UserName],
 				[Password], 
 				[IsActive],
 				[IsDeleted], 
@@ -270,12 +255,12 @@ BEGIN TRANSACTION
 			Place,
 			City,
 			District,
-			State,
+			[State],
 			Country,
 			ZipCode
 		)
 		VALUES(
-			SCOPE_IDENTITY(),
+			1,
 			@Place,
 			@City,
 			@District,
@@ -287,8 +272,7 @@ BEGIN TRANSACTION
 	END TRY
 	BEGIN CATCH
 		ROLLBACK TRANSACTION
-		--exec [dbo].[spWebLogInsert] '','','','','','','','','','','','','','','','','',''
+		exec [dbo].[spWebLogInsert] '','','','','','','','','','','','','','','','','',''
 	END CATCH
 
 END
-GO

@@ -1,11 +1,15 @@
-﻿using Medical.Data.Configurations;
+﻿using Medical.Data.Company;
+using Medical.Data.Configurations;
+using Medical.Data.Contract.Company;
 using Medical.Data.Contract.Configurations;
 using Medical.Data.Contract.Core;
 using Medical.Data.Contract.UserLogin;
 using Medical.Data.Core;
 using Medical.Data.UserLogin;
 using Medical.Domain;
+using Medical.Domain.Company;
 using Medical.Domain.Contract;
+using Medical.Domain.Contract.Company;
 using Medical.Domain.Contract.UserLogin;
 using Medical.Domain.UserLogin;
 using Medical.Infrastructure.Logger;
@@ -37,7 +41,11 @@ namespace Medical.Infrastructure.IOC
             services.AddTransient<IUserLoginDomainService, UserLoginDomainService>();
             services.AddTransient<IUserLoginDataAccess, UserLoginDataAccess>();
             services.AddTransient<IUserLoginDataMapper, UserLoginDataMapper>();
-            
+
+            services.AddTransient<ICompanyDomainService, CompanyDomainService>();
+            services.AddTransient<ICompanyDataAccess, CompanyDataAccess>();
+            services.AddTransient<ICompanyDataMapper, CompanyDataMapper>();
+
             services.AddTransient<IApplicationLogger, NLogLoggerAdapter>();
             services.AddTransient<ILogger>(context => LogManager.GetLogger("MedicalAPI"));
         }

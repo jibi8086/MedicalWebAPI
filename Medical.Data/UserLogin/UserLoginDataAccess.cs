@@ -50,15 +50,12 @@ namespace Medical.Data.UserLogin
                 new SqlParameter("@Country",employee.Country),
                 new SqlParameter("@ZipCode",employee.ZipCode),
             };
-                
+
             var res = await _sqlHelper.ExecuteNonQueryAsync(
-                                    StoredProcedure,
-                                    
+                                    StoredProcedure,                                  
                                     SqlParameters
                                     );
-            return true;
-
-
+            return res > 0 ? true : false;
         }
         #endregion
 
