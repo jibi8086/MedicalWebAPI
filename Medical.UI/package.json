@@ -34,7 +34,7 @@
     "eslint": "^6.8.0",
     "eslint-config-vuetify": "^0.4.1",
     "eslint-plugin-vue": "^6.1.2",
-    "sass": "^1.24.3",
+    "sass": "~1.32.13",
     "sass-loader": "^8.0.0",
     "vee-validate": "^3.2.2",
     "vue-chartist": "^2.2.1",
