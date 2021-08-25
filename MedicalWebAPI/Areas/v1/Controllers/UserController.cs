@@ -40,7 +40,14 @@ namespace MedicalWebAPI.Areas.v1.Controllers
             {
                 var loginDetails = _mapper.Map<UserLoginDomainDto>(login);
                 var result = await _userLoginDomainService.AuthenticateUser(loginDetails);
-                return Ok(new ResponseVM<UserLoginViewModel>(true, ResponseMessages.DATA_ACCESS_SUCCESS, _mapper.Map<UserLoginViewModel>(result)));
+                if (result == null)
+                {
+                    return Ok(new ResponseVM<UserLoginViewModel>(false, ResponseMessages.DATA_NOT_FOUND, _mapper.Map<UserLoginViewModel>(result)));
+                }
+                else
+                {
+                    return Ok(new ResponseVM<UserLoginViewModel>(true, ResponseMessages.DATA_ACCESS_SUCCESS, _mapper.Map<UserLoginViewModel>(result)));
+                }
             }
             catch (Exception ex)
             {
@@ -63,7 +70,7 @@ namespace MedicalWebAPI.Areas.v1.Controllers
             {
                 var employeeDetails = _mapper.Map<EmployeeDomainDto>(employee);
                 var result = await _userLoginDomainService.CreateEmployee(employeeDetails);
-                return Ok(new ResponseVM<bool>(true, ResponseMessages.DATA_ACCESS_SUCCESS, _mapper.Map<bool>(result)));
+                    return Ok(new ResponseVM<bool>(true, ResponseMessages.DATA_ACCESS_SUCCESS, _mapper.Map<bool>(result)));
             }
             catch (Exception ex)
             {

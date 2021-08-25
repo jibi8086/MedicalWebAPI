@@ -40,7 +40,16 @@ namespace MedicalWebAPI
             services.AddSingleton(mapper);
             services.AddControllers();
             services.AddDependency(Configuration);
-            //services.Configure<ConnectionStringSettings>(Configuration.GetSection(""));
+            services.AddCors(options => {
+                options.AddPolicy(name: "medicalCorsConfig",
+                    builder =>
+                    {
+                        builder.WithOrigins("*")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowAnyOrigin();
+                    });
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MedicalWebAPI", Version = "v1" });
@@ -66,6 +75,7 @@ namespace MedicalWebAPI
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseCors("medicalCorsConfig");
 
             app.UseEndpoints(endpoints =>
             {

@@ -340,3 +340,13 @@ BEGIN
 	
 END
 GO
+
+
+CREATE PROCEDURE [dbo].[getLoginDetails]
+@UserName nvarchar(max),
+@Password nvarchar(max)
+	
+AS
+BEGIN
+Select *from [dbo].[Employee] where UserName=@UserName AND [Password]=@Password
+END

@@ -22,10 +22,12 @@
               Login
             </h2>
             <input
+              v-model="username"
               type="text"
               placeholder="Username"
             >
             <input
+              v-model="password"
               type="password"
               placeholder="Password"
             >
@@ -46,18 +48,30 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
   export default {
     name: 'App',
     data: () => ({
       login: false,
+      username: '',
+      password: '',
     }),
     mounted () {
       // alert('test')
     },
     methods: {
-
+      ...mapActions(['AuthenticateUser']),
       greet: function () {
-        this.login = true
+        const _self = this
+        const userDetails = {}
+        userDetails.userName = this.username
+        userDetails.password = this.password
+        this.AuthenticateUser(userDetails).then(function (response) {
+          if (response.success) {
+            _self.login = true
+          }
+        })
+        // this.login = true
       },
     },
   }

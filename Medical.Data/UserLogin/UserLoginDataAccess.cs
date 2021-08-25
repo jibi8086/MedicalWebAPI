@@ -24,13 +24,15 @@ namespace Medical.Data.UserLogin
         public async Task<UserLoginData> AuthenticateUser(UserLoginData login)
         {
             const string StoredProcedure = "getLoginDetails";
-            //var SqlParameters = new[] {
-            //    new SqlParameter("",5)
-            //};
+            var SqlParameters = new[] {
+                new SqlParameter("@UserName",login.UserName),
+                new SqlParameter("@Password",login.Password)
+            };
 
             return await _sqlHelper.GetFirstOrDefaultAsync(
                                     StoredProcedure,
-                                    _userLoginDataMapper.MapUserDetails
+                                    _userLoginDataMapper.MapUserDetails,
+                                    SqlParameters
                 );
 
 
