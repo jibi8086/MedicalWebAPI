@@ -1,10 +1,6 @@
 ﻿using Medical.Data.Contract.Company;
 using Medical.Data.Contract.Configurations;
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Medical.Data.Company
@@ -24,6 +20,7 @@ namespace Medical.Data.Company
         }
         #endregion
 
+        #region PUBLIC
         public async Task<CompanyData> RegisterCompany(CompanyData company)
         {
             const string StoredProcedure = "InsertCompanyDetails";
@@ -49,5 +46,7 @@ namespace Medical.Data.Company
                                     );
             return company;
         }
+        #endregion
+
     }
 }
