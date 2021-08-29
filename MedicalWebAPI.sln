@@ -39,9 +39,30 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medical.API.Test", "Medical
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medical.Int.Test", "Medical.Int.Test\Medical.Int.Test.csproj", "{D8781538-40E9-4895-8E9B-049324D91705}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medical.Data.Test", "Medical.Data.Test\Medical.Data.Test.csproj", "{86AA5C76-40BE-4E1A-B731-5E0305C89F79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medical.Data.Test", "Medical.Data.Test\Medical.Data.Test.csproj", "{86AA5C76-40BE-4E1A-B731-5E0305C89F79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medical.External", "Medical.External\Medical.External.csproj", "{EDA06FD5-E210-4879-B29D-74B13C51E4EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medical.External", "Medical.External\Medical.External.csproj", "{EDA06FD5-E210-4879-B29D-74B13C51E4EA}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Medical.Website.UI", "..\Medical.Website.UI\", "{1EBF0F94-9B55-44AA-904D-AA03E7447E4D}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_51253"
+		Debug.AspNetCompiler.PhysicalPath = "..\Medical.Website.UI\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51253\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_51253"
+		Release.AspNetCompiler.PhysicalPath = "..\Medical.Website.UI\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51253\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "51253"
+		SlnRelativePath = "..\Medical.Website.UI\"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +126,10 @@ Global
 		{EDA06FD5-E210-4879-B29D-74B13C51E4EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDA06FD5-E210-4879-B29D-74B13C51E4EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDA06FD5-E210-4879-B29D-74B13C51E4EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EBF0F94-9B55-44AA-904D-AA03E7447E4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EBF0F94-9B55-44AA-904D-AA03E7447E4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EBF0F94-9B55-44AA-904D-AA03E7447E4D}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EBF0F94-9B55-44AA-904D-AA03E7447E4D}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -124,6 +149,7 @@ Global
 		{D8781538-40E9-4895-8E9B-049324D91705} = {18C8BCC6-1985-49FA-98B4-0116AFD61E85}
 		{86AA5C76-40BE-4E1A-B731-5E0305C89F79} = {18C8BCC6-1985-49FA-98B4-0116AFD61E85}
 		{EDA06FD5-E210-4879-B29D-74B13C51E4EA} = {7A475A04-1912-43BA-9A17-7A28CE00391B}
+		{1EBF0F94-9B55-44AA-904D-AA03E7447E4D} = {30AC0489-E8A9-4A00-BA6E-49A1E76D06BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8A17B11D-184E-4DEA-9AD1-694F19B2A182}

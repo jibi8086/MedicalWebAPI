@@ -117,6 +117,11 @@
           to: '/pages/user',
         },
         {
+          icon: 'mdi-account',
+          title: 'employee',
+          to: '/pages/user',
+        },
+        {
           title: 'rtables',
           icon: 'mdi-clipboard-outline',
           to: '/tables/regular-tables',

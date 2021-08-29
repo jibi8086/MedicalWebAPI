@@ -37,7 +37,7 @@
             >
               forgot password?
             </a>
-            <button @click="greet">
+            <button @click="userLogin">
               Log in
             </button>
           </form>
@@ -61,7 +61,7 @@
     },
     methods: {
       ...mapActions(['AuthenticateUser']),
-      greet: function () {
+      userLogin: function () {
         const _self = this
         const userDetails = {}
         userDetails.userName = this.username
