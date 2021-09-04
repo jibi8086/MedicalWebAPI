@@ -7,24 +7,24 @@
       elevate-on-scroll
       height="80"
     >
-      <!-- <base-img
-        :src="require('@/assets/logo.svg')"
+      <base-img
+        :src="require('@/assets/Logo/Karuna-Medicals.png')"
         class="mr-3 hidden-xs-only"
         contain
-        max-width="46"
+        max-width="200"
         width="100%"
+      />
+      <!-- <base-subheading
+        weight="regular"
+        title="KARUNA MEDICALS"
       /> -->
-      <base-subheading
-            weight="regular"
-            title="KARUNA MEDICALS"
-          />
       <v-spacer />
 
-<span
-style="color:#076C33"
->
-Pattithanam
-</span>
+      <span
+        style="color:#076C33"
+      >
+        Pattithanam
+      </span>
       <div>
         <!-- <v-tabs
           class="hidden-sm-and-down"

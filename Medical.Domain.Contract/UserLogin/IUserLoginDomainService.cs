@@ -10,5 +10,6 @@ namespace Medical.Domain.Contract.UserLogin
     {
         Task<UserLoginDomainDto> AuthenticateUser(UserLoginDomainDto login);
         Task<bool> CreateEmployee(EmployeeDomainDto employee);
+        Task<bool> UpdateEmployee(EmployeeDomainDto employee);
     }
 }

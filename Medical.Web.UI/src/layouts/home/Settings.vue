@@ -43,27 +43,27 @@
           v-model="currentThemePrimary"
           class="d-flex justify-center"
         >
-   <base-title
-        align="center"
-        title="TIMING"
-        space="0"
-      />
+          <base-title
+            align="center"
+            title="TIMING"
+            space="0"
+          />
         </v-item-group>
-<v-item-group>
-  <base-title
-        align="center"
-        title="10am to 7pm"
-        space="0"
-                style="color:#076C33"
-      />
-</v-item-group>
-<v-item-group>
-  <base-title
-        align="center"
-        title="9947530292"
-        space="0"
-      />
-</v-item-group>
+        <v-item-group>
+          <base-title
+            align="center"
+            title="10am to 7pm"
+            space="0"
+            style="color:#076C33"
+          />
+        </v-item-group>
+        <v-item-group>
+          <base-title
+            align="center"
+            title="9947530292"
+            space="0"
+          />
+        </v-item-group>
       </v-card-text>
     </v-card>
   </v-menu>

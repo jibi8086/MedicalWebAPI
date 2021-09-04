@@ -83,6 +83,28 @@ namespace MedicalWebAPI.Areas.v1.Controllers
                 return Ok(new ResponseVM<bool>(false, ex.Message));
             }   
         }
+        [HttpPost]
+        [Route("UpdateEmployee")]
+        public async Task<IActionResult> UpdateEmployee(EmployeeViewModel employee)
+        {
+
+            try
+            {
+                var employeeDetails = _mapper.Map<EmployeeDomainDto>(employee);
+                var result = await _userLoginDomainService.UpdateEmployee(employeeDetails);
+                return Ok(new ResponseVM<bool>(true, ResponseMessages.DATA_ACCESS_SUCCESS, _mapper.Map<bool>(result)));
+            }
+            catch (Exception ex)
+            {
+                _logger.Error()
+                    .Exception(ex)
+                    .Message($"Login Failed UserID={employee.UserName}")
+                    .LoggerName("AuthenticateUser")
+                    .Property(nameof(employee.UserName), employee.UserName)
+                    .Write();
+                return Ok(new ResponseVM<bool>(false, ex.Message));
+            }
+        }
         #endregion
 
     }

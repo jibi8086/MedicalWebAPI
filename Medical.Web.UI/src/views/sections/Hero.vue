@@ -18,16 +18,16 @@
             title="WE LOVE MAKING THINGS SIMPLE AND AMAZING"
           />
 
-<base-heading
+          <base-heading
             size="text-h3"
             title="KARUNA MEDICALS"
             weight="medium"
           />
 
           <base-body>
-           <span>
-            Pattithanam,Ettumannor 9947530292,8086747217
-          </span>
+            <span>
+              Pattithanam,Ettumannor 9947530292,8086747217
+            </span>
             <br>
             Karuna Pharmacy is incepted with a mission to revolutionise the
             Indian Pharmaceutical Industry by providing World Health
@@ -39,7 +39,7 @@
             class="d-flex flex-wrap"
           >
             <base-btn>
-             Order Now
+              Order Now
             </base-btn>
 
             <span class="font-weight-bold ml-6 mr-4 my-4">or</span>

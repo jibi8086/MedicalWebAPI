@@ -3,7 +3,7 @@
     :class="classes"
     class="base-avatar d-inline-flex"
   >
-    <v-avatar //
+    <v-avatar
       v-if="outlined"
       :color="color || ($vuetify.theme.isDark ? 'grey darken-3' : 'grey lighten-4')"
       :size="outlineSize"

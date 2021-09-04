@@ -46,6 +46,31 @@ namespace Medical.Data.Company
                                     );
             return company;
         }
+        public async Task<CompanyData> UpdateCompanyDetails(CompanyData company)
+        {
+            const string StoredProcedure = "InsertCompanyDetails";
+
+            var SqlParameters = new[] {
+                new SqlParameter("@ComapnyOwnerID",company.ComapnyOwnerID),
+                new SqlParameter("@CompanyName",company.CompanyName),
+                new SqlParameter("@CompanyCode",company.CompanyCode),
+                new SqlParameter("@CompanyEmail",company.CompanyEmail),
+                new SqlParameter("@Place",company.Place),
+                new SqlParameter("@City",company.City),
+                new SqlParameter("@District",company.District),
+                new SqlParameter("@State",company.State),
+                new SqlParameter("@Country",company.Country),
+                new SqlParameter("@ZipCode",company.ZipCode),
+                new SqlParameter("@CreatedBy",company.CreatedBy),
+                new SqlParameter("@CreatedDate",company.CreatedDate),
+            };
+
+            var res = await _sqlHelper.ExecuteNonQueryAsync(
+                                    StoredProcedure,
+                                    SqlParameters
+                                    );
+            return company;
+        }
         #endregion
 
     }

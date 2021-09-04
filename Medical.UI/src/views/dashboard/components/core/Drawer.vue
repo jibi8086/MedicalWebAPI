@@ -60,7 +60,11 @@
           v-if="item.children"
           :key="`group-${i}`"
           :item="item"
+          :to="item.children.to"
+
+          @click="test()"
         >
+          {{ item }}
           <!--  -->
         </base-item-group>
 
@@ -110,11 +114,24 @@
           icon: 'mdi-view-dashboard',
           title: 'dashboard',
           to: '/',
+
         },
         {
           icon: 'mdi-account',
           title: 'user',
           to: '/pages/user',
+          children: [
+            {
+              icon: 'mdi-view-dashboard',
+              title: 'user',
+              to: '/pages/user',
+            },
+            {
+              icon: 'mdi-view-dashboards',
+              title: 'user',
+              path: '/pages/user',
+            },
+          ],
         },
         {
           icon: 'mdi-account',
@@ -178,6 +195,7 @@
           title: this.$t(item.title),
         }
       },
+      test () { alert('test') },
     },
   }
 </script>

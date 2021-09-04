@@ -36,7 +36,6 @@ namespace MedicalWebAPI.Areas.v1.Controllers
         [Route("RegisterCompany")]
         public async Task<IActionResult> RegisterCompany(CompanyViewModel company)
         {
-
             try
             {
                 var companyRegisterDetails = _mapper.Map<CompanyDomainDto>(company);
@@ -47,8 +46,30 @@ namespace MedicalWebAPI.Areas.v1.Controllers
             {
                 _logger.Error()
                     .Exception(ex)
-                    .Message($"Login Failed UserID={company.ComapnyOwnerID}")
-                    .LoggerName("AuthenticateUser")
+                    .Message($"Register Company failed={company.ComapnyOwnerID}")
+                    .LoggerName("RegisterCompany")
+                    .Property(nameof(company.ComapnyOwnerID), company.CompanyName)
+                    .Write();
+                return Ok(new ResponseVM<bool>(false, ex.Message));
+            }
+        }
+
+        [HttpPost]
+        [Route("UpdateCompanyDetails")]
+        public async Task<IActionResult> UpdateCompanyDetails(CompanyViewModel company)
+        {
+            try
+            {
+                var companyRegisterDetails = _mapper.Map<CompanyDomainDto>(company);
+                var result = await _companyDomainService.UpdateCompanyDetails(companyRegisterDetails);
+                return Ok(new ResponseVM<CompanyViewModel>(true, ResponseMessages.DATA_ACCESS_SUCCESS, _mapper.Map<CompanyViewModel>(result)));
+            }
+            catch (Exception ex)
+            {
+                _logger.Error()
+                    .Exception(ex)
+                    .Message($"UpdateCompanyDetails Failed ComapnyOwnerID={company.ComapnyOwnerID}")
+                    .LoggerName("UpdateCompanyDetails")
                     .Property(nameof(company.ComapnyOwnerID), company.CompanyName)
                     .Write();
                 return Ok(new ResponseVM<bool>(false, ex.Message));

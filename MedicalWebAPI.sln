@@ -61,6 +61,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Medical.Web.UI", "Medical.W
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "51447"
+		SlnRelativePath = "Medical.Web.UI\"
 	EndProjectSection
 EndProject
 Global

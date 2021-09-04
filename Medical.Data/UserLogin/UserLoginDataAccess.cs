@@ -58,6 +58,29 @@ namespace Medical.Data.UserLogin
                                     SqlParameters
                                     );
             return res > 0 ? true : false;
+        } 
+
+        public async Task<bool> UpdateEmployee(EmployeeData employee)
+        {
+            const string StoredProcedure = "InsertEmployeeDetails";
+
+            var SqlParameters = new[] {
+                new SqlParameter("@UserName",employee.UserName),
+                new SqlParameter("@Password",employee.Password),
+                new SqlParameter("@CreatedBy",employee.CreatedBy),
+                new SqlParameter("@Place",employee.Place),
+                new SqlParameter("@City",employee.City),
+                new SqlParameter("@District",employee.District),
+                new SqlParameter("@State",employee.State),
+                new SqlParameter("@Country",employee.Country),
+                new SqlParameter("@ZipCode",employee.ZipCode),
+            };
+
+            var res = await _sqlHelper.ExecuteNonQueryAsync(
+                                    StoredProcedure,                                  
+                                    SqlParameters
+                                    );
+            return res > 0 ? true : false;
         }
         #endregion
 

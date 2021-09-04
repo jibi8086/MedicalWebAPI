@@ -29,7 +29,7 @@
                   Price
                 </th>
                 <th class="text-body-1 font-weight-bold text-center">
-                 Discount Price
+                  Discount Price
                 </th>
               </tr>
             </thead>

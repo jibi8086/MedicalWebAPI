@@ -10,5 +10,6 @@ namespace Medical.Data.Contract.UserLogin
     {
         Task<UserLoginData> AuthenticateUser(UserLoginData login);
         Task<bool> CreateEmployee(EmployeeData employee);
+        Task<bool> UpdateEmployee(EmployeeData employee);
     }
 }

@@ -9,5 +9,6 @@ namespace Medical.Data.Contract.Company
     public interface ICompanyDataAccess
     {
         Task<CompanyData> RegisterCompany(CompanyData companyDetails);
+        Task<CompanyData> UpdateCompanyDetails(CompanyData companyDetails);
     }
 }

@@ -35,6 +35,12 @@ namespace Medical.Domain.UserLogin
             var result= await _userLoginDataAccess.CreateEmployee(employeeDetails);
             return result;
         }   
+        public async Task<bool> UpdateEmployee(EmployeeDomainDto employee) {
+
+            var employeeDetails = _mapper.Map<EmployeeData>(employee);
+            var result= await _userLoginDataAccess.UpdateEmployee(employeeDetails);
+            return result;
+        }   
 
     }
 }
