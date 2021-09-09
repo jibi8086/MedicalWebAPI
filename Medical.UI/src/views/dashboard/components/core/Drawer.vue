@@ -31,15 +31,15 @@
           contain
         >
           <v-img
-            src="https://demos.creative-tim.com/vuetify-material-dashboard/favicon.ico"
-            max-height="30"
+            src="../../../../assets/logo.png"
+            max-height="40"
           />
         </v-list-item-avatar>
 
         <v-list-item-content>
           <v-list-item-title
             class="text-h4"
-            v-text="profile.title"
+            v-text="name"
           />
         </v-list-item-content>
       </v-list-item>
@@ -60,11 +60,8 @@
           v-if="item.children"
           :key="`group-${i}`"
           :item="item"
-          :to="item.children.to"
-
-          @click="test()"
+          :to="item"
         >
-          {{ item }}
           <!--  -->
         </base-item-group>
 
@@ -80,7 +77,7 @@
       <div />
     </v-list>
 
-    <template v-slot:append>
+    <!-- <template v-slot:append>
       <base-item
         :item="{
           title: $t('upgrade'),
@@ -88,12 +85,13 @@
           to: '/upgrade',
         }"
       />
-    </template>
+    </template> -->
   </v-navigation-drawer>
 </template>
 
 <script>
   // Utilities
+
   import {
     mapState,
   } from 'vuex'
@@ -109,6 +107,7 @@
     },
 
     data: () => ({
+      name: 'Karuna Medicals',
       items: [
         {
           icon: 'mdi-view-dashboard',
@@ -119,17 +118,30 @@
         {
           icon: 'mdi-account',
           title: 'user',
-          to: '/pages/user',
+          group: '/pages',
+
           children: [
             {
               icon: 'mdi-view-dashboard',
-              title: 'user',
-              to: '/pages/user',
+              title: 'employee',
+              to: 'employee',
             },
             {
               icon: 'mdi-view-dashboards',
               title: 'user',
-              path: '/pages/user',
+              to: 'user',
+              children: [
+                {
+                  icon: 'mdi-view-dashboard',
+                  title: 'employee',
+                  to: 'employee',
+                },
+                {
+                  icon: 'mdi-view-dashboards',
+                  title: 'user',
+                  to: 'user',
+                },
+              ],
             },
           ],
         },

@@ -30,8 +30,8 @@ export default new Router({
         },
         {
           name: 'Employee',
-          path: 'pages/user',
-          component: () => import('@/views/dashboard/pages/UserProfile'),
+          path: 'pages/employee',
+          component: () => import('@/views/dashboard/pages/Employee/index'),
         },
         {
           name: 'Notifications',
