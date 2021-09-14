@@ -1,5 +1,8 @@
 ﻿using Medical.Data.Contract.Company;
 using Medical.Data.Contract.Configurations;
+using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 
@@ -36,8 +39,8 @@ namespace Medical.Data.Company
                 new SqlParameter("@State",company.State),
                 new SqlParameter("@Country",company.Country),
                 new SqlParameter("@ZipCode",company.ZipCode),
-                new SqlParameter("@CreatedBy",company.CreatedBy),
-                new SqlParameter("@CreatedDate",company.CreatedDate),
+                new SqlParameter("@CreatedBy",DateTime.Now),
+                new SqlParameter("@CreatedDate",DateTime.Now),
             };
 
             var res = await _sqlHelper.ExecuteNonQueryAsync(
@@ -48,9 +51,10 @@ namespace Medical.Data.Company
         }
         public async Task<CompanyData> UpdateCompanyDetails(CompanyData company)
         {
-            const string StoredProcedure = "InsertCompanyDetails";
+            const string StoredProcedure = "UpdateCompanyDetails";
 
             var SqlParameters = new[] {
+                new SqlParameter("@ID",company.ID),
                 new SqlParameter("@ComapnyOwnerID",company.ComapnyOwnerID),
                 new SqlParameter("@CompanyName",company.CompanyName),
                 new SqlParameter("@CompanyCode",company.CompanyCode),
@@ -71,6 +75,16 @@ namespace Medical.Data.Company
                                     );
             return company;
         }
+        public async Task<IList<CompanyData>> GetAllCompanyDetails()
+        {
+            const string StoredProcedure = "GetAllCompanyDetails";
+
+            return await _sqlHelper.GetAllAsync(
+                                    StoredProcedure,
+                                    _companyDataMapper.MapCompanyDetails
+                                    );
+        }
+
         #endregion
 
     }

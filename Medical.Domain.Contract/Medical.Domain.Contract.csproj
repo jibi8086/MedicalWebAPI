@@ -4,4 +4,9 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Company\ICompanyDomainService.cs~RF1083fc4.TMP" />
+    <None Remove="Company\ICompanyDomainService.cs~RF1094c81.TMP" />
+  </ItemGroup>
+
 </Project>

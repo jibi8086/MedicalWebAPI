@@ -34,6 +34,11 @@ export default new Router({
           component: () => import('@/views/dashboard/pages/Employee/index'),
         },
         {
+          name: 'Company',
+          path: 'pages/company',
+          component: () => import('@/views/dashboard/pages/Company/index'),
+        },
+        {
           name: 'Notifications',
           path: 'components/notifications',
           component: () => import('@/views/dashboard/component/Notifications'),

@@ -36,5 +36,10 @@ namespace Medical.Domain.Company
             var result = await _companyDataAccess.UpdateCompanyDetails(companyDetails);
             return _mapper.Map<CompanyDomainDto>(result);
         }
+        public async Task<IList<CompanyDomainDto>> GetAllCompanyDetails()
+        {     
+            var result = await _companyDataAccess.GetAllCompanyDetails();
+            return _mapper.Map<IList<CompanyDomainDto>>(result);
+        }
     }
 }

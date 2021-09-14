@@ -130,18 +130,25 @@
               icon: 'mdi-view-dashboards',
               title: 'user',
               to: 'user',
-              children: [
-                {
-                  icon: 'mdi-view-dashboard',
-                  title: 'employee',
-                  to: 'employee',
-                },
-                {
-                  icon: 'mdi-view-dashboards',
-                  title: 'user',
-                  to: 'user',
-                },
-              ],
+
+            },
+          ],
+        },
+        {
+          icon: 'mdi-account',
+          title: 'company',
+          group: '/pages',
+          children: [
+            {
+              icon: 'mdi-view-dashboard',
+              title: 'company',
+              to: 'company',
+            },
+            {
+              icon: 'mdi-view-dashboards',
+              title: 'user',
+              to: 'user',
+
             },
           ],
         },

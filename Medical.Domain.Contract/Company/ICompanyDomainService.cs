@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Medical.Domain.Contract.Company
 {
@@ -6,5 +7,6 @@ namespace Medical.Domain.Contract.Company
     {
         Task<CompanyDomainDto> RegisterCompany(CompanyDomainDto companyRegisterDetails);
         Task<CompanyDomainDto> UpdateCompanyDetails(CompanyDomainDto companyRegisterDetails);
+        Task<IList<CompanyDomainDto>> GetAllCompanyDetails();
     }
 }

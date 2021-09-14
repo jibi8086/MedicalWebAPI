@@ -10,5 +10,6 @@ namespace Medical.Data.Contract.Company
     {
         Task<CompanyData> RegisterCompany(CompanyData companyDetails);
         Task<CompanyData> UpdateCompanyDetails(CompanyData companyDetails);
+        Task<IList<CompanyData>> GetAllCompanyDetails();
     }
 }

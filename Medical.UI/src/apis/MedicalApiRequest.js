@@ -5,6 +5,7 @@ export default {
     AuthenticateUser (userDetails) {
         return medicalApi.post(`${ENDPOINT}AuthenticateUser`, userDetails, { headers: { 'content-type': 'application/json' } })
     },
+
     // AuthenticateUser() {
     //     return medicalApi.get(`${ENDPOINT}GetRecruitmentRequest`);
     // },

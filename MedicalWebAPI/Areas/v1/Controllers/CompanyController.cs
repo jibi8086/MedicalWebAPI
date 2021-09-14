@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using NLog;
 using NLog.Fluent;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace MedicalWebAPI.Areas.v1.Controllers
@@ -71,6 +72,25 @@ namespace MedicalWebAPI.Areas.v1.Controllers
                     .Message($"UpdateCompanyDetails Failed ComapnyOwnerID={company.ComapnyOwnerID}")
                     .LoggerName("UpdateCompanyDetails")
                     .Property(nameof(company.ComapnyOwnerID), company.CompanyName)
+                    .Write();
+                return Ok(new ResponseVM<bool>(false, ex.Message));
+            }
+        }
+        [HttpGet]
+        [Route("GetAllCompanyDetails")]
+        public async Task<IActionResult> GetAllCompanyDetails()
+        {
+            try
+            {
+                var result = await _companyDomainService.GetAllCompanyDetails();
+                return Ok(new ResponseVM<IList<CompanyViewModel>>(true, ResponseMessages.DATA_ACCESS_SUCCESS, _mapper.Map<IList<CompanyViewModel>>(result)));
+            }
+            catch (Exception ex)
+            {
+                _logger.Error()
+                    .Exception(ex)
+                    .Message($"GetAllCompanyDetails Failed ")
+                    .LoggerName("GetAllCompanyDetails")
                     .Write();
                 return Ok(new ResponseVM<bool>(false, ex.Message));
             }
